@@ -1,0 +1,22 @@
+pip install tensorflow
+pip install pillow
+
+import tensorflow as tf
+import tensorflow_hub as hub
+
+model = hub.load("https://tfhub.dev/google/imagenet/mobilenet_v2_100_224/classification/5")
+import tensorflow as tf
+import tensorflow_hub as hub
+
+model = hub.load("https://tfhub.dev/google/imagenet/mobilenet_v2_100_224/classification/5")
+predictions = model.predict(image)
+labels_path = "caminho/para/arquivo/labels.txt"
+
+with open(labels_path, "r") as f:
+    labels = f.readlines()
+
+predicted_label = labels[np.argmax(predictions)]
+confidence = np.max(predictions)
+
+print("Objeto: ", predicted_label)
+print("Confiança: ", confidence)
